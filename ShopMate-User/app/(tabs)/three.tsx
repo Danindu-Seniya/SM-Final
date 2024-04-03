@@ -15,8 +15,8 @@ export default function TabThreeScreen() {
   const [isReviews, setIsReviews] = useState<boolean>(true);
   const [isEditBioModalVisible, setIsEditBioModalVisible] = useState<boolean>(false);
 
-  const img1 = require("../../assets/images/ice-cream.png")
-  const img2 = require("../../assets/images/Kickspot.jpeg")
+  const img1 = require("../../assets/images/Roots.jpg")
+  const img2 = require("../../assets/images/odel.jpeg")
 
   const handleEditBio = () => {
     setIsEditBioModalVisible(true);
@@ -69,7 +69,7 @@ export default function TabThreeScreen() {
       <View style={{ flex: 1, paddingTop: -20, borderTopEndRadius: 20, borderTopStartRadius: 50, width: '100%', backgroundColor: "#EEF0FA" }}>
         <Image
           style={{ width: 85, height: 85, borderRadius: 100, zIndex: 10, marginLeft: 290,bottom: -40, }}
-          source={require("../../assets/images/Profile_photo.png")}   
+          source={require("../../assets/images/maleAvatar.jpg")}   
         />
         
 
@@ -113,9 +113,9 @@ export default function TabThreeScreen() {
         {isReviews ?
           (<ScrollView style={{ flex: 1, flexDirection: "column", rowGap: 25, marginTop: 20, paddingVertical: 30, bottom: 380, }}>
 
-            <ReviewCard props={{ name: "Chillz", text: "Very Tasty and Good customer Service with great offers.", date: "Today", img: img1 }} />
+            <ReviewCard props={{ name: "Roots", text: "Very Tasty and Good customer Service with great offers.", date: "Today", img: img1 }} />
 
-            <ReviewCard props={{ name: "KickSpot", text: "High quality shoes and they have great offers. Highly recommended.", date: "14/01/2024", img: img2 }} />
+            <ReviewCard props={{ name: "Odel", text: "High quality clothings and they have great offers. Highly recommended.", date: "14/01/2024", img: img2 }} />
 
 
           </ScrollView>)
