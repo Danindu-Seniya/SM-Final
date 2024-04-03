@@ -39,7 +39,7 @@ export default function Start() {
         </Text>
       </TouchableOpacity>
 
-      <Text style={{ textAlign: "center", fontSize: 16,fontWeight: "bold", bottom: 50}}>
+      <Text style={{ textAlign: "center", fontSize: 16,fontWeight: "bold", bottom: 50, flexDirection: "row",}}>
         Already have an account?
       </Text>
 
@@ -48,7 +48,7 @@ export default function Start() {
         onPress={() => router.replace("./auth/LogIn")}
       >
         <Text
-          style={{fontSize: 18,color: "white",fontWeight: "bold",bottom: 50}}>
+          style={{fontSize: 18,color: "white",fontWeight: "bold",bottom: 50, flexDirection: "row",}}>
           Log In
         </Text>
       </TouchableOpacity>
@@ -98,13 +98,14 @@ const styles = StyleSheet.create({
     bottom:90,
   },
   loginbtn:{
-    height: 45,
+    height: 50,
     justifyContent: "center",
     alignItems: "center",
     marginTop: -15,
     marginHorizontal: 40,
     borderRadius: 10,
-    color:'white'
+    color:'white',
+    flexDirection: "row",
   },
   imagelogo: {
     width: 338,

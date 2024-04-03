@@ -55,17 +55,17 @@ const LogIn = () => {
               router.push("/Start");
             }}
           >
-            <MaterialIcons name="arrow-back-ios" size={24} color="black" top={10} left={3} marginLeft={20} />
+            <MaterialIcons name="arrow-back-ios" size={24} color="black" top={10} left={3} marginLeft={20} marginTop={5}/>
           </TouchableOpacity>
         </View>
 
         <View style={{ flex: 1.5 }}>
-          <Text style={{ fontSize: 24, alignItems: "flex-start", fontWeight: "bold" }}>Log In</Text>
+          <Text style={{ fontSize: 24, alignItems: "flex-start", fontWeight: "bold", marginTop: 10,}}>Log In</Text>
         </View>
       </View>
 
       <View>
-        <Text style={{ fontSize: 32, marginTop: 20, marginLeft: 20, fontWeight: "bold" }}>
+        <Text style={{ fontSize: 32, marginTop: 30, marginLeft: 20, fontWeight: "bold" }}>
           Welcome Back!
         </Text>
         <Text style={{ fontSize: 16, marginLeft: 20, marginTop: -6 }}>
@@ -74,7 +74,7 @@ const LogIn = () => {
       </View>
 
       <View>
-        <View style={{ marginHorizontal: 20, marginTop: 20 }}>
+        <View style={{ marginHorizontal: 20, marginTop: 30 }}>
           <Text>Email:</Text>
           <TextInput
             style={{
@@ -121,7 +121,7 @@ const LogIn = () => {
           marginTop:500,
           marginHorizontal: 40,
           borderRadius: 10,
-          bottom: 130
+          bottom: 170
           
         }}
         onPress={signIn}
@@ -144,7 +144,7 @@ const LogIn = () => {
         <Text
           style={{
             fontSize: 16,
-            bottom: 130,
+            bottom: 170,
             fontWeight: "bold",
           }}
         >
