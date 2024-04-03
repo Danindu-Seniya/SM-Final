@@ -1,28 +1,52 @@
-import React, { useState } from 'react';
-import { StyleSheet, TextInput, FlatList, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, TextInput, FlatList, View, ScrollView } from 'react-native';
 import ShopCard from '@/components/ShopCard'; 
 import { Ionicons } from '@expo/vector-icons';
+import { FIREBASE_DB } from '@/Firebaseconfig';
+import { collection, query, where, onSnapshot } from 'firebase/firestore';
+
+
+const data = [
+  { label: "All", value: null },
+  { label: "Clothing", value: "Clothing" },
+  { label: "Electronics", value: "Electronics" },
+];
 
 const SearchableShopList = () => {
   const [searchText, setSearchText] = useState('');
-  
-  // Shop data
-  const shops = [
-    { id: 1, name: 'Keells', logo: require("../assets/images/Keells.jpg"), rating: '4.5', category: 'Food City' },
-    { id: 2, name: 'Odel', logo: require("../assets/images/odel.jpeg"), rating: '5.0', category: 'Clothing' },
-    { id: 3, name: 'Softlogic Max', logo: require("../assets/images/SM.png"), rating: '4.5', category: 'Electronics' },
-    { id: 4, name: 'Vision Care', logo: require("../assets/images/VC.jpeg"), rating: '5.0', category: 'Electronics' },
-    { id: 5, name: 'Roots', logo: require("../assets/images/Roots.jpg"), rating: '4.5', category: 'Food' },
-    { id: 6, name: 'Baskin Robbins', logo: require("../assets/images/BR.jpg"), rating: '5.0', category: 'Food' },
-    { id: 7, name: 'Burger King', logo: require("../assets/images/BK.png"), rating: '4.5', category: 'Food' },
-    { id: 8, name: 'Maxx lite', logo: require("../assets/images/ice-cream.png"), rating: '5.0', category: 'Cinema' },
-    
-  ];
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  // Filter shops based on search text
-  const filteredShops = shops.filter(shop =>
-    shop.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  const handleCategoryChange = (text: string | null) =>
+    setSelectedCategory(text);
+
+  const [shopList, setShopList] = useState<any[]>([]);
+
+  const handleFetchStaff = async () => {
+    const shopRef = collection(FIREBASE_DB, "shop");
+    const querySnapshot = query(
+      shopRef,
+      where("category", "==", selectedCategory)
+    );
+
+    onSnapshot(selectedCategory === null ? shopRef : querySnapshot, {
+      next: (snapshot) => {
+        const staff: any[] = [];
+        snapshot.docs.forEach((doc) => {
+          staff.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+        console.log("Shop List: ", staff);
+        setShopList(staff);
+      },
+    });
+  };
+
+  useEffect(() => {
+    handleFetchStaff();
+  }, [selectedCategory]);
+
 
   return (
     <View className='flex-1 paddingTop-20' style={{ backgroundColor: '#E5E7F4' }}>
@@ -38,19 +62,18 @@ const SearchableShopList = () => {
         />
       </View>
       
-      <FlatList
-        data={filteredShops}
-        renderItem={({ item }) => (
+      <ScrollView>
+        {shopList.map((shop) => (
           <ShopCard
-            key={item.id}
-            name={item.name}
-            logo={item.logo}
-            rating={item.rating}
-            category={item.category}
+            key={shop.id}
+            id={shop.id}
+            name={shop.name}
+            logo={shop.image}
+            rating={shop.rating}
+            category={shop.category}
           />
-        )}
-        keyExtractor={item => item.id.toString()}
-      />
+        ))}
+      </ScrollView>
     </View>
   );
 };
