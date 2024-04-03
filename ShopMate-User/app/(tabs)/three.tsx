@@ -89,7 +89,7 @@ export default function TabThreeScreen() {
 
         {/* button set */}
 
-        <View style={{ marginTop: 40, flexDirection: "row", backgroundColor: "transparent", width: "100%", alignSelf: "center" }}>
+        <View style={{ marginTop: 40, flexDirection: "row", backgroundColor: "transparent", width: "100%", alignSelf: "center", alignItems: "center", }}>
           <Pressable
             onPress={()=>setIsReviews(true)}
             style={[styles.button, isReviews ? styles.selectedButton : null]}
