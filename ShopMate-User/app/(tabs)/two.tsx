@@ -12,7 +12,7 @@ const TabTwoScreen: React.FC = () => (
     <View style={styles.box}>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <View>
-          <Text style={styles.text}>Hello jane!</Text>
+          <Text style={styles.text}>Hello </Text>
           <Text style={styles.text1}>What are you looking for?</Text>
         </View>
         {/* Profile Photo */}
