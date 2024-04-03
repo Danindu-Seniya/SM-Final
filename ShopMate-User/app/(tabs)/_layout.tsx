@@ -29,28 +29,7 @@ export default function TabLayout() {
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
       }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'AR Navigation',
-          tabBarIcon: ({ color }) => <Entypo name="location" size={24} color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
-        }}
-      />
-      <Tabs.Screen
+        <Tabs.Screen
         name="two"
         options={{
           title: 'Home',
@@ -61,6 +40,28 @@ export default function TabLayout() {
 
         }}
       />
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'AR Navigation',
+          tabBarIcon: ({ color }) => <Entypo name="location" size={24} color={color} />,
+          headerRight: () => (
+            <Link href="/userSettings" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <Ionicons
+                    name="settings-outline"
+                    size={25}
+                    color={Colors[colorScheme ?? 'light'].text}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
+        }}
+      />
+      
       <Tabs.Screen
         name="three"
         options={{

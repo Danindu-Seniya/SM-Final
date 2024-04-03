@@ -114,7 +114,7 @@ const LogIn = () => {
 
       <TouchableOpacity
         style={{
-          backgroundColor: "#1164C42",
+          backgroundColor: "#2F7DF1",
           height: 45,
           justifyContent: "center",
           alignItems: "center",
@@ -144,7 +144,8 @@ const LogIn = () => {
         <Text
           style={{
             fontSize: 16,
-            bottom: 130
+            bottom: 130,
+            fontWeight: "bold",
           }}
         >
           {"Create Account"}
