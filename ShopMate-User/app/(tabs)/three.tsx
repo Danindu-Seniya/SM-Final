@@ -55,29 +55,24 @@ export default function TabThreeScreen() {
   return (
     //  Main cotainer
     
-    <ScrollView style={{ flex: 1}} contentContainerStyle={{ alignItems: "center", justifyContent: "flex-end",  }}>
+    <ScrollView style={{ flex: 1}} contentContainerStyle={{ alignItems: "center", justifyContent: "flex-end", width: "100%" }}>
       
       {/* Sub container */}
       
-      <View style={{ flex: 1, paddingTop: 130, borderTopEndRadius: 20, borderTopStartRadius: 20, width: '100%', backgroundColor: "#EEF0FA" }}>
+      <View style={{ flex: 1, paddingTop: -20, borderTopEndRadius: 20, borderTopStartRadius: 50, width: '100%', backgroundColor: "#EEF0FA" }}>
         <Image
-          style={{ width: 85, height: 85, borderRadius: 100, marginTop: -100, zIndex: 10, marginLeft: 290,bottom: 5, }}
+          style={{ width: 85, height: 85, borderRadius: 100, zIndex: 10, marginLeft: 290,bottom: -40, }}
           source={require("../../assets/images/Profile_photo.png")}   
         />
         
 
-        {/* Top Icons set */}
-        <View style={{ flex: 0.1, flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, marginTop: -90, zIndex: 10, backgroundColor: "transparent" }}>
-          <Image
-            style={{ width: 45, height: 45 }}
-            source={require("../../assets/images/storeIcon.svg")}
-          />
+        
           
-        </View>
-        <View style={{ flex: 1,flexDirection: 'row', justifyContent: 'center', alignItems: 'center',width: '100%' , height: 200, bottom: 100, borderRadius: 25, backgroundColor: "#2E77E5"}}></View>
+        
+        <View style={{ flex: 1,flexDirection: 'row', justifyContent: 'center', alignItems: 'center',width: '100%' , height: 220, bottom: 110, borderRadius: 25, backgroundColor: "#2E77E5"}}></View>
 
         {/* Text */}
-        <View style={{ marginTop: 100, flexDirection: "column", gap: 10, paddingHorizontal: 20, backgroundColor: "transparent", width: "70%" }}>
+        <View style={{ marginTop: 80, flexDirection: "column", gap: 10, paddingHorizontal: 20, backgroundColor: "transparent", width: "100%" }}>
           <View style={{ backgroundColor: "transparent", bottom: 330, }}>
           <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "left",color: "white" }}>Name: {fName} {lName}</Text>
           

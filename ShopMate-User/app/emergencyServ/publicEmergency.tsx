@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import { StyleSheet, TouchableOpacity, Text, View, Linking, ScrollView } from "react-native";
 
 const emergencyContacts = [
-  { title: "Police Emergency Hot-line", number: "118 / 119" },
+  { title: "Police Emergency Hot-line", number: "119" },
   { title: "Ambulance / Fire & rescue", number: "110" },
   { title: "Accident Service-General Hospital-Colombo", number: "011-2691111" },
   { title: "Tourist Police", number: "011-2421052" },
