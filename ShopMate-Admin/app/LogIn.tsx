@@ -171,26 +171,6 @@ import React from "react";
             LOG IN
           </Text>
         </TouchableOpacity>
-  
-        <TouchableOpacity
-          style={{
-            height: 45,
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: -1,
-            marginHorizontal: 40,
-            borderRadius: 10,
-          }}
-          onPress={() => console.log("Foget Password")}
-        >
-          <Text
-            style={{
-              fontSize: 16,
-            }}
-          >
-            {"Foget Password"}
-          </Text>
-        </TouchableOpacity>
       </ScrollView>
     );
   };

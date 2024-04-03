@@ -21,6 +21,7 @@ import { router } from "expo-router";
 const data = [
   { label: "Clothing", value: "Clothing" },
   { label: "Electronics", value: "Electronics" },
+  { label: "Foods", value: "Foods" },
 ];
 
 const CreateShop = () => {

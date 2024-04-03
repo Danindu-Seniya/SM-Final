@@ -6,11 +6,7 @@ import { FIREBASE_DB } from '@/Firebaseconfig';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
 
 
-const data = [
-  { label: "All", value: null },
-  { label: "Clothing", value: "Clothing" },
-  { label: "Electronics", value: "Electronics" },
-];
+
 
 const SearchableShopList = () => {
   const [searchText, setSearchText] = useState('');

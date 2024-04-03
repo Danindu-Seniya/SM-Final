@@ -81,7 +81,7 @@ export default function TabThreeScreen() {
         {/* Text */}
         <View style={{ marginTop: 80, flexDirection: "column", gap: 10, paddingHorizontal: 20, backgroundColor: "transparent", width: "100%" }}>
           <View style={{ backgroundColor: "transparent", bottom: 330, }}>
-          <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "left",color: "white" }}>Name: {fName}</Text>
+          <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "left",color: "white" }}>Name: {fName} </Text>
           
           <View style={{ flexDirection: "row", gap: 10, backgroundColor: "transparent", }}>
             <Text style={{ fontSize: 20, color: 'white'}}>Email: </Text>
@@ -97,7 +97,7 @@ export default function TabThreeScreen() {
             style={[styles.button, isReviews ? styles.selectedButton : null]}
           >
             <FontAwesome name="thumbs-up" size={24} color="black" />
-            <Text style={[styles.buttonText, isReviews ? styles.selectedButtonText : null]}>Usage</Text>
+            <Text style={[styles.buttonText, isReviews ? styles.selectedButtonText : null]}>Reviews</Text>
           </Pressable>
 
           <Pressable

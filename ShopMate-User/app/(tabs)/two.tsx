@@ -7,6 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Fontisto } from '@expo/vector-icons';
 import Promo from "../Promo";
 
+
 const TabTwoScreen: React.FC = () => (
   <ScrollView style={styles.container}>
     <View style={styles.box}>
