@@ -23,7 +23,7 @@ export default function RegisterUser() {
   const [lName, setLname] = useState("");
   const [mobNum, setMobNum] = useState("");
   const [age, setAge] = useState("");
-  // const [gender,setGender] = useState("");
+  const [gender,setGender] = useState("");
   const auth = FIREBASE_AUTH;
   const router = useRouter();
 
@@ -43,12 +43,13 @@ export default function RegisterUser() {
           email: email,
           age: age,
           mobNum: mobNum,
+          gender: gender,
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
         console.error("Error adding document: ", e);
       }
-      router.replace("./(tabs)");
+      router.replace("../(tabs)");
     } catch (error: any) {
       console.log(error);
       alert("SignIn failed: " + error.message);
@@ -147,11 +148,11 @@ export default function RegisterUser() {
         </View>
 
         <View style={styles.inputcontainer}>
-          <Text>Age:</Text>
+          <Text>Gender:</Text>
           <TextInput
             style={styles.textInput}
             placeholder=" "
-            onChangeText={(text) => setAge(text)}
+            onChangeText={(text) => setGender(text)}
             autoCorrect={false}
           ></TextInput>
         </View>

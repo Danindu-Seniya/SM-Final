@@ -5,7 +5,7 @@ import { Image } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, updateDoc } from "firebase/firestore";
 import { FIREBASE_DB } from "@/Firebaseconfig";
 import ReviewCard from "@/components/ReviewCard";
 
@@ -23,7 +23,7 @@ export default function TabThreeScreen() {
   };
 
   const handleSaveBio = () => {
-    // Implement logic to save edited bio
+    updateDoc
     setIsEditBioModalVisible(false);
   };
 
@@ -33,6 +33,9 @@ export default function TabThreeScreen() {
   const[lName, setLName] = useState("");
   const[age, setAge] = useState("");
   const[email,setEmail] = useState("");
+  const[gender,setGender] = useState("");
+  const[health,setHealth] = useState("");
+  const[medicine,setMedicine] = useState("");
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -44,6 +47,10 @@ export default function TabThreeScreen() {
           setLName(doc.data().last);
           setAge(doc.data().age);
           setEmail(doc.data().email);
+          setGender(doc.data().gender);
+          setHealth(doc.data().healthConditions);
+          setMedicine(doc.data().medicine);
+
         });
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -74,7 +81,7 @@ export default function TabThreeScreen() {
         {/* Text */}
         <View style={{ marginTop: 80, flexDirection: "column", gap: 10, paddingHorizontal: 20, backgroundColor: "transparent", width: "100%" }}>
           <View style={{ backgroundColor: "transparent", bottom: 330, }}>
-          <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "left",color: "white" }}>Name: {fName} {lName}</Text>
+          <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "left",color: "white" }}>Name: {fName}</Text>
           
           <View style={{ flexDirection: "row", gap: 10, backgroundColor: "transparent", }}>
             <Text style={{ fontSize: 20, color: 'white'}}>Email: </Text>
@@ -90,7 +97,7 @@ export default function TabThreeScreen() {
             style={[styles.button, isReviews ? styles.selectedButton : null]}
           >
             <FontAwesome name="thumbs-up" size={24} color="black" />
-            <Text style={[styles.buttonText, isReviews ? styles.selectedButtonText : null]}>Reviews</Text>
+            <Text style={[styles.buttonText, isReviews ? styles.selectedButtonText : null]}>Usage</Text>
           </Pressable>
 
           <Pressable
@@ -116,23 +123,23 @@ export default function TabThreeScreen() {
           (<View style={{backgroundColor:"white", width:"100%", alignSelf:"center", paddingHorizontal:20,paddingVertical:30, rowGap:10, borderRadius:10, marginTop:40, bottom: 350,}}>
             <View style={{ flexDirection: "row", backgroundColor: 'transparent', }}>
               <Text style={{ flex: 1, fontSize: 18, color: "black", fontWeight: "300" }}>Name</Text>
-              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: Jane</Text>
+              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>{fName} {lName}</Text>
             </View>
             <View style={{ flexDirection: "row", backgroundColor: 'transparent', }}>
               <Text style={{ flex: 1, fontSize: 18, color: "black", fontWeight: "300" }}>Age</Text>
-              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: 25</Text>
+              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: {age}</Text>
             </View>
             <View style={{ flexDirection: "row", backgroundColor: 'transparent', }}>
               <Text style={{ flex: 1, fontSize: 18, color: "black", fontWeight: "300" }}>Gender</Text>
-              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: Female</Text>
+              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: {gender}</Text>
             </View>
             <View style={{ flexDirection: "row", backgroundColor: 'transparent', }}>
               <Text style={{ flex: 1, fontSize: 18, color: "black", fontWeight: "300" }}>Special health conditions</Text>
-              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: Asthma</Text>
+              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: {health}</Text>
             </View>
             <View style={{ flexDirection: "row", backgroundColor: 'transparent', }}>
               <Text style={{ flex: 1, fontSize: 18, color: "black", fontWeight: "300" }}>Emergency medicine</Text>
-              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: Theophylline</Text>
+              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: {medicine}</Text>
             </View>
 
             <Pressable
@@ -171,11 +178,12 @@ export default function TabThreeScreen() {
             </View>
             
             {/* Text Inputs */}
-            <TextInput style={styles.inputField} placeholder="Name" />
-            <TextInput style={styles.inputField} placeholder="Age" />
-            <TextInput style={styles.inputField} placeholder="Gender" />
-            <TextInput style={styles.inputField} placeholder="Health Conditions" />
-            <TextInput style={styles.inputField} placeholder="Medicine" />
+            <TextInput style={styles.inputField} placeholder="First Name" onChangeText={setFName} />
+            <TextInput style={styles.inputField} placeholder="Last Name" onChangeText={setLName} />
+            <TextInput style={styles.inputField} placeholder="Age" onChangeText={setAge}/>
+            <TextInput style={styles.inputField} placeholder="Gender" onChangeText={setGender} />
+            <TextInput style={styles.inputField} placeholder="Health Conditions" onChangeText={setHealth}/>
+            <TextInput style={styles.inputField} placeholder="Medicine" onChangeText={setMedicine}/>
 
             {/* Save Button */}
             <TouchableOpacity style={styles.saveButton} onPress={handleSaveBio}>
