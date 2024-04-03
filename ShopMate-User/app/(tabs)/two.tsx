@@ -18,7 +18,7 @@ const TabTwoScreen: React.FC = () => (
         </View>
         {/* Profile Photo */}
         <Image
-          source={require("../../assets/images/Profile_photo.png")}
+          source={require("../../assets/images/maleAvatar.jpg")}
           style={styles.profilePhoto}
         />
       </View>
