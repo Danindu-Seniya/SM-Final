@@ -59,9 +59,9 @@ export default function TabThreeScreen() {
       
       {/* Sub container */}
       
-      <View style={{ flex: 0.75, paddingTop: 130, borderTopEndRadius: 20, borderTopStartRadius: 20, width: '100%', backgroundColor: "#EEF0FA" }}>
+      <View style={{ flex: 1, paddingTop: 130, borderTopEndRadius: 20, borderTopStartRadius: 20, width: '100%', backgroundColor: "#EEF0FA" }}>
         <Image
-          style={{ width: 85, height: 85, marginStart: 80, borderRadius: 100, marginTop: -100, zIndex: 1, marginLeft: 248,bottom: -5, }}
+          style={{ width: 85, height: 85, borderRadius: 100, marginTop: -100, zIndex: 10, marginLeft: 290,bottom: 5, }}
           source={require("../../assets/images/Profile_photo.png")}   
         />
         
@@ -74,26 +74,22 @@ export default function TabThreeScreen() {
           />
           
         </View>
-        <View style={{ flex: 1,flexDirection: 'row', justifyContent: 'center', alignItems: 'center',width: 358, height: 200, bottom: 100, marginLeft: 2, borderRadius: 25, backgroundColor: "#2E77E5"}}></View>
+        <View style={{ flex: 1,flexDirection: 'row', justifyContent: 'center', alignItems: 'center',width: '100%' , height: 200, bottom: 100, borderRadius: 25, backgroundColor: "#2E77E5"}}></View>
 
         {/* Text */}
         <View style={{ marginTop: 100, flexDirection: "column", gap: 10, paddingHorizontal: 20, backgroundColor: "transparent", width: "70%" }}>
-          <View style={{ flexDirection: "row", backgroundColor: "transparent", bottom: 330, }}>
-          <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "left", }}>Name: {fName}</Text>
-          <View style={{ flexDirection: "row", justifyContent: "space-between", backgroundColor: "transparent" }}>
-            <Text style={{ fontSize: 20 }}>Age: {age}</Text>
-            {/* <Text style={{ fontSize: 20 }}>{age}</Text> */}
-          </View>
-          <View style={{ flexDirection: "row", justifyContent: "space-between", backgroundColor: "transparent" }}>
-            <Text style={{ fontSize: 20 }}>Email: </Text>
-            <Text style={{ fontSize: 20 }}>{email}</Text>
-
+          <View style={{ backgroundColor: "transparent", bottom: 330, }}>
+          <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "left",color: "white" }}>Name: {fName} {lName}</Text>
+          
+          <View style={{ flexDirection: "row", gap: 10, backgroundColor: "transparent", }}>
+            <Text style={{ fontSize: 20, color: 'white'}}>Email: </Text>
+            <Text style={{ fontSize: 20, color: 'white'}}>{email}</Text>
           </View>
         </View>
 
         {/* button set */}
 
-        <View style={{ marginTop: 40, flexDirection: "row", backgroundColor: "transparent", width: "90%", alignSelf: "center" }}>
+        <View style={{ marginTop: 40, flexDirection: "row", backgroundColor: "transparent", width: "100%", alignSelf: "center" }}>
           <Pressable
             onPress={()=>setIsReviews(true)}
             style={[styles.button, isReviews ? styles.selectedButton : null]}
@@ -122,7 +118,7 @@ export default function TabThreeScreen() {
 
           </ScrollView>)
           :
-          (<View style={{backgroundColor:"white", width:"85%", alignSelf:"center", paddingHorizontal:20,paddingVertical:30, rowGap:10, borderRadius:10, marginTop:40, bottom: 350,}}>
+          (<View style={{backgroundColor:"white", width:"100%", alignSelf:"center", paddingHorizontal:20,paddingVertical:30, rowGap:10, borderRadius:10, marginTop:40, bottom: 350,}}>
             <View style={{ flexDirection: "row", backgroundColor: 'transparent', }}>
               <Text style={{ flex: 1, fontSize: 18, color: "black", fontWeight: "300" }}>Name</Text>
               <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: Jane</Text>
@@ -222,9 +218,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 12,
-    flex: 0.75,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    alignSelf: "center",
     marginHorizontal: 5, // Added margin for spacing between buttons
     bottom: 350
   },
