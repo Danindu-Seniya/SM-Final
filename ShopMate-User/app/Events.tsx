@@ -40,6 +40,7 @@ const Events = () => {
           name={events.name}
           logo={events.image}
           rating={events.rating}
+          date={events.date}
         />
       ))}
     </View>
