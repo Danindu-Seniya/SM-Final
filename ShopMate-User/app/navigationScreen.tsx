@@ -50,7 +50,10 @@ const SearchableShopList = () => {
     setShowCamera(true);
   };
   
-
+  // Filter shopList based on searchText
+  const filteredShopList = shopList.filter((shop) =>
+    shop.name.toLowerCase().includes(searchText.toLowerCase())
+  );
   
   return (
     <GestureHandlerRootView style={styles.container}>
@@ -71,7 +74,7 @@ const SearchableShopList = () => {
       </View>
       
       <ScrollView>
-        {shopList.map((shop) => (
+        {filteredShopList.map((shop) => (
           <TouchableOpacity key={shop.id} onPress={handleCameraPress}>
           <ShopCard
             key={shop.id}

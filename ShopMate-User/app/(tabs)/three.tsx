@@ -123,7 +123,7 @@ export default function TabThreeScreen() {
           (<View style={{backgroundColor:"white", width:"100%", alignSelf:"center", paddingHorizontal:20,paddingVertical:30, rowGap:10, borderRadius:10, marginTop:40, bottom: 350,}}>
             <View style={{ flexDirection: "row", backgroundColor: 'transparent', }}>
               <Text style={{ flex: 1, fontSize: 18, color: "black", fontWeight: "300" }}>Name</Text>
-              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>{fName} {lName}</Text>
+              <Text style={{ flex: 0.8, fontSize: 18, color: "black", fontWeight: "300" }}>: {fName} {lName}</Text>
             </View>
             <View style={{ flexDirection: "row", backgroundColor: 'transparent', }}>
               <Text style={{ flex: 1, fontSize: 18, color: "black", fontWeight: "300" }}>Age</Text>
