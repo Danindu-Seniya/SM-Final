@@ -14,7 +14,7 @@ const EventCard: FC<EventCardProps> = (props) => {
   const { name, logo, rating, id,date } = props;
 
   return (
-  <View style={{marginTop:20}}>
+  <View>
     <Text style={{color:'black',marginLeft:30, bottom: -45, fontSize: 17}}>
         {date}
     </Text>
@@ -45,11 +45,11 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     padding: 5,
     marginTop:50,
-    height: 110,
-    width: 310
+    height: 130,
+    width: "90%"
   },
   logo: {
-    width: 80,
+    width: 100,
     height: 80,
     aspectRatio: 1,
     borderRadius: 10,
@@ -59,13 +59,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    paddingVertical: 10,
   },
   name: {
     fontWeight: "bold",
     color: "black",
     fontSize: 20,
-    marginBottom: 5,
+    marginBottom: 10,
     marginLeft: 5,
 
   },
