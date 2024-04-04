@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
   },
 
   promotionsText: {
+    paddingTop: 10,
     fontSize: 18,
     marginLeft: 30,
 
