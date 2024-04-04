@@ -14,7 +14,7 @@ const EventCard: FC<EventCardProps> = (props) => {
   const { name, logo, rating, id,date } = props;
 
   return (
-  <View style={{marginTop:10}}>
+  <View>
     <Text style={{color:'black',marginLeft:30,marginTop:50, fontSize: 17}}>
         {date}
     </Text>
