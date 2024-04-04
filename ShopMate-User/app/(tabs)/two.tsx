@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginLeft: 30,
     marginTop:20,
+    marginBottom: -50,
     color: "black",
     fontWeight: "bold",
   },
