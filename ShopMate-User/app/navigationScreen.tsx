@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { StyleSheet, TextInput, FlatList, View, ScrollView } from 'react-native';
 import ShopCard from '@/components/ShopCard'; 
 import { Ionicons } from '@expo/vector-icons';
 import { FIREBASE_DB } from '@/Firebaseconfig';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
-
-
+import { Camera } from 'expo-camera';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 const SearchableShopList = () => {
@@ -16,7 +17,8 @@ const SearchableShopList = () => {
     setSelectedCategory(text);
 
   const [shopList, setShopList] = useState<any[]>([]);
-
+  const [showCamera, setShowCamera] = useState(false); // State to track whether to show the camera
+  
   const handleFetchStaff = async () => {
     const shopRef = collection(FIREBASE_DB, "shop");
     const querySnapshot = query(
@@ -43,8 +45,18 @@ const SearchableShopList = () => {
     handleFetchStaff();
   }, [selectedCategory]);
 
+  const handleCameraPress = () => {
+    // Logic to open camera
+    setShowCamera(true);
+  };
+  
 
+  
   return (
+    <GestureHandlerRootView style={styles.container}>
+      
+        
+      
     <View className='flex-1 paddingTop-20' style={{ backgroundColor: '#E5E7F4' }}>
       {/* Existing content */}
       <View style={styles.searchContainer}>
@@ -60,6 +72,7 @@ const SearchableShopList = () => {
       
       <ScrollView>
         {shopList.map((shop) => (
+          <TouchableOpacity key={shop.id} onPress={handleCameraPress}>
           <ShopCard
             key={shop.id}
             id={shop.id}
@@ -68,13 +81,23 @@ const SearchableShopList = () => {
             rating={shop.rating}
             category={shop.category}
           />
+         </TouchableOpacity> 
         ))}
       </ScrollView>
+      
+      {showCamera && (
+          <Camera style={styles.camera} />
+        )}
     </View>
+    </GestureHandlerRootView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#E5E7F4',
+  },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -94,6 +117,12 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     color: 'black',
+  },
+  camera: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    bottom: 0,
   },
 });
 
