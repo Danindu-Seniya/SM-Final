@@ -39,6 +39,7 @@ const Events = () => {
           id={events.id}
           name={events.name}
           logo={events.image}
+          date={events.date}
           rating={events.rating}
         />
       ))}

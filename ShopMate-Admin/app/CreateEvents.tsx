@@ -23,9 +23,11 @@ import {
     const [name, setName] = useState<string>("");
     const [rating, setRating] = useState<string>("");
     const [imageUri, setImageUri] = useState<string | null>(null);
+    const[date,setDate]=useState<string>("");
   
     const handleNameChange = (text: string) => setName(text);
     const handleRatingChange = (text: string) => setRating(text);
+    const handledateChange = (text: string) => setDate(text);
     const handleImagePick = async () => {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
       if (status !== "granted") {
@@ -70,7 +72,7 @@ import {
       // You can handle registration logic here
       console.log("Shop Create button clicked");
   
-      if (!name ||!rating || !imageUri) {
+      if (!name ||!rating || !imageUri || !date) {
         console.log("Please fill in all the required fields");
         Alert.alert("Please fill in all the required fields");
         return;
@@ -79,6 +81,7 @@ import {
       const doc = addDoc(collection(FIREBASE_DB, "events"), {
         name,
         rating,
+        date,
         image: imageUri,
       });
   
@@ -89,6 +92,7 @@ import {
       setName("");
       setRating("");
       setImageUri("");
+      setDate("");
     };
   
     return (
@@ -112,6 +116,13 @@ import {
               placeholder="     Type here..."
               onChangeText={handleRatingChange}
               value={rating}
+              
+            />
+            <Text style={{ fontSize: 18, fontWeight:'bold' }}>Date: </Text>
+            <CustomTextInput
+              placeholder="     Type here..."
+              onChangeText={handledateChange}
+              value={date}
               
             />
             <View className=" flex-row justify-between items-center bg-[#FFFFFF] rounded-2xl shadow-2xl p-3 mt-3">
@@ -152,7 +163,6 @@ import {
                 paddingVertical: 10,
                 width: 150,
                 height: 50,
-                bottom: 100,
                 
               }}
             >

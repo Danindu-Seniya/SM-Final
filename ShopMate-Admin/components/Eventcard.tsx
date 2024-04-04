@@ -7,15 +7,16 @@ interface EventCardProps {
   name: string;
   logo: string;
   rating: string;
+  date: string;
 }
 
 const EventCard: FC<EventCardProps> = (props) => {
-  const { name, logo, rating, id } = props;
+  const { name, logo, rating, id,date } = props;
 
   return (
   <View style={{marginTop:10}}>
-    <Text style={{color:'black',marginLeft:30, bottom: -10, fontSize: 17}}>
-        Today
+    <Text style={{color:'black',marginLeft:30,marginTop:50, fontSize: 17}}>
+        {date}
     </Text>
     <View style={styles.container}>
       <Image
@@ -43,7 +44,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginVertical: 5,
     padding: 5,
-    bottom: -15,
     height: 120,
     width: 320
   },
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
   },
   rating: {
     fontSize: 15,
-    color: "white",
-    fontWeight: "100",
+    color: "black",
+    fontWeight: "200",
   },
   heading: {
     fontSize: 24,
